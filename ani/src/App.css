@@ -1,10 +1,36 @@
+body{
+  padding: 0;
+  margin: 0;
+}
 .box{
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   background-color: rgb(51, 155, 155);
 }
 
-body{
-  background-color: rgb(23, 23, 23);
-  overflow: hidden;
+.page1{
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page2{
+  height: 100vh;
+  background-color: rgb(16, 16, 16);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page3{
+  height: 100vh;
+  background-color: rgb(25, 24, 24);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
