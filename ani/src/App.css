@@ -1,0 +1,10 @@
+.box{
+  height: 300px;
+  width: 300px;
+  background-color: rgb(51, 155, 155);
+}
+
+body{
+  background-color: rgb(23, 23, 23);
+  overflow: hidden;
+}
