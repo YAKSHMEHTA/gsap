@@ -1,15 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css';
-import Gsp from './Gsp';
+import { useRef } from "react"
+import { useGSAP } from "@gsap/react"  // npm install @gsap/react
+import gsap from "gsap"
+import "./App.css"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const container = useRef(null)
+
+  useGSAP(() => {
+    const tl = gsap.timeline()
+    tl.to(".box1", { x: 300, duration: 1 })
+    tl.to(".box2",{x:300,duration:1},"+=0.3")
+    tl.to(".box3",{x:300,duration:1},"+=0.7")
+  }, { scope: container })
 
   return (
-    <div>
-      <Gsp></Gsp>
+    <div ref={container}>
+      <div className="box1 h-20  w-20  bg-red-400" />
+      <div className="box2 h-20  w-20  bg-red-400" />
+      <div className="box3 h-20  w-20  bg-red-400" />
     </div>
   )
 }

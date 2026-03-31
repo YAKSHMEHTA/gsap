@@ -1,51 +1,46 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
+import img1 from "./assets/image1.jpeg";
+import img2 from "./assets/image2.jpeg";
 
 function Gsp() {
 
-  gsap.registerPlugin(ScrollTrigger);
-
   useGSAP(() => {
-    gsap.from(".page1 .box",{
-      scale:0,
-      duration:2,
-      backgroundColor:"blue",
+
+    const tl = gsap.timeline();
+
+    tl.from(".img1, .img2", {
+      y: -400,
+      duration: 1,
+      ease: "power2.out",
     })
-    gsap.from(".page2 .box",{
-      scale:0,
-      duration:2,
-      backgroundColor:"blue",
-      delay:0.5,
-      scrollTrigger:{
-        trigger:".page2 .box",
-        scroller:"body",
-        markers:true,
-        start:"top 60%",
-        end:"top 30%",
-        scrub:1.5
-      }
+    // .to(".img1, .img2", {
+    //   x:600,
+    //   y: 100,
+    //   duration: 1,
+    //   ease: "power2.inOut",
+    // })
+    // .to(".img2", {
+    //   x: 100,
+    //   duration: 1,
+    //   ease: "power2.inOut",
+    // })
+    .to(".img1", {
+      x:-1200,
+      duration: 1,
+      ease: "power2.inOut",
     })
+
   });
 
   return (
-    <>
-      <div className="page1">
-        <div className="box">
-
-        </div>
+    <div className="bg-blue-900 w-full h-[100vh] overflow-x-hidden">
+      <img src={img1} className="img1 h-125 absolute top-60 left-330" alt="" />
+      <div className="h-full w-full">
+        <h1 className="h-ful">Video Calling Website</h1>
       </div>
-      <div className="page2">
-        <div className="box">
-          
-        </div>
-      </div>
-      <div className="page3">
-        <div className="box">
-          
-        </div>
-      </div>
-    </>
+      <img src={img2} className="img2 h-125 absolute top-60 left-330" alt="" />
+    </div>
   );
 }
 
