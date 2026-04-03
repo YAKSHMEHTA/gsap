@@ -7,11 +7,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const [num, setNum] = useState(0);
-  console.log();
+  let obj = { val: 0 };
   const container = useRef(null);
-  const updateNum = (percent)=>{
-    setNum(prev =>   Math.floor((2.6 * percent)))
-  }
+  // const updateNum = (percent) => {
+  //   obj.val = Math.floor(2.6 * percent);
+  // };
   const items = [
     "FULL STACK",
     "ENGINEER",
@@ -62,18 +62,18 @@ function App() {
         opacity: 0,
       });
 
-      gsap.to("#s3", {
+      gsap.to(obj, {
+        val: 260,
+        ease:"Power1.out",
         scrollTrigger: {
-          trigger:"#s3",
-          markers:true,
-          start:"top bottom",
-          end:"bottom bottom",
-          scrub:2,
-          onUpdate: (self) => {
-            const percent = Math.round(self.progress * 100);
-            updateNum(percent)
-            console.log(percent + "%");
-          },
+          trigger: "#s3",
+          markers: true,
+          start: "top 50%",
+          end: "bottom 80%",
+          scrub: 3,
+        },
+        onUpdate: () => {
+          setNum(Math.floor(obj.val));
         },
       });
     },
