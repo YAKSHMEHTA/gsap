@@ -1,1 +1,259 @@
 @import "tailwindcss";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --bg: #07070a;
+  --accent: #c8ff00;
+  --text: #e8e8e8;
+  --dim: #444;
+  --line: #111;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Mono", monospace;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8vw;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* ─── 1. HORIZONTAL TEXT SLIDE ─── */
+#s1 {
+  overflow: hidden;
+}
+
+.h-track {
+  display: flex;
+  white-space: nowrap;
+  gap: 0;
+}
+
+.h-text {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(80px, 14vw, 160px);
+  letter-spacing: 2px;
+  padding-right: 80px;
+  flex-shrink: 0;
+}
+
+.h-text.outline {
+  -webkit-text-stroke: 1px #222;
+  color: transparent;
+}
+
+/* ─── 2. STAGGER REVEAL ─── */
+#s2 {
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  margin-top: 40px;
+}
+
+.card {
+  background: var(--bg);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-num {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 48px;
+  color: #111;
+  line-height: 1;
+}
+
+.card-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.card-text {
+  font-size: 11px;
+  color: var(--dim);
+  line-height: 2;
+}
+
+.card-bar-track {
+  height: 1px;
+  background: #111;
+  margin-top: auto;
+}
+
+.card-bar {
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left;
+}
+
+/* ─── 3. PINNED COUNTER ─── */
+#s3 {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.pin-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.big-num {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(120px, 22vw, 240px);
+  line-height: 1;
+  letter-spacing: -4px;
+  color: var(--accent);
+}
+
+.big-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+/* ─── 4. HORIZONTAL SCROLL SECTION ─── */
+#s4 {
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 0;
+}
+
+.h-scroll-outer {
+  overflow: hidden;
+  width: 100%;
+}
+
+.h-scroll-inner {
+  display: flex;
+  width: max-content;
+  height: 100vh;
+  align-items: center;
+  gap: 2px;
+  padding: 0 8vw;
+}
+
+.h-panel {
+  width: 70vw;
+  height: 70vh;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.h-panel-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.h-panel-num {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+  margin-bottom: 12px;
+}
+
+.h-panel-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(36px, 5vw, 60px);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.h-panel-sub {
+  font-size: 11px;
+  color: var(--dim);
+}
+.h-panel-accent {
+  color: var(--accent);
+}
+
+/* ─── 5. LINE WIPE REVEAL ─── */
+#s5 {
+}
+
+.wipe-lines {
+  margin-top: 40px;
+}
+
+.wipe-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.wipe-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.wipe-name {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(32px, 5vw, 56px);
+  letter-spacing: 1px;
+}
+
+.wipe-year {
+  font-size: 11px;
+  color: var(--dim);
+}
+.wipe-tag {
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+}
