@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import './App.css'
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
@@ -6,10 +6,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const [num,setNum] = useState(0)
+  console.log()
   const container = useRef(null);
   const items = ["FULL STACK", "ENGINEER", "REACT", "NODE.JS", "MONGODB", "GSAP"]
   useGSAP(() => {
-    // Add your animations here
       const tl = gsap.timeline();
 
       gsap.to("#track1",
@@ -30,12 +31,27 @@ function App() {
         x:300,
         ease:null,
         scrollTrigger:{
-          markers:true,
+//          markers:true,
           trigger:"#s1",
           start:"center 40%",
           end:"bottom 20%",
           scrub:2,
         }
+      })
+      gsap.from(".card",{
+        scrollTrigger:{
+          trigger:".cards",
+          start:"top 90%",
+          end:"bottom 10%",
+//          markers:true,
+          
+        },
+        transformOrigin: "bottom center",
+        yPercent:50,
+        duration:0.6,
+        ease:"power3.out",
+        stagger:0.2,
+        opacity:0,
       })
   }, { scope: container });
 
@@ -88,7 +104,7 @@ function App() {
       <section id="s3">
         <div className="pin-wrap" id="pin-target">
           <div className="big-label">problems solved</div>
-          <div className="big-num" id="big-counter">000</div>
+          <div className="big-num" id="big-counter">{num}</div>
           <div className="big-label">and counting</div>
         </div>
       </section>
