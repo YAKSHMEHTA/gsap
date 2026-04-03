@@ -10,7 +10,33 @@ function App() {
   const items = ["FULL STACK", "ENGINEER", "REACT", "NODE.JS", "MONGODB", "GSAP"]
   useGSAP(() => {
     // Add your animations here
-      
+      const tl = gsap.timeline();
+
+      gsap.to("#track1",
+        {
+          x:-600,
+          ease:null,
+          scrollTrigger:{
+            trigger:"#s1",
+            start:"top 10%",
+            end:"bottom top",
+            //markers:true,
+            scrub:2,
+          },
+        }
+      )
+
+      gsap.to("#track2",{
+        x:300,
+        ease:null,
+        scrollTrigger:{
+          markers:true,
+          trigger:"#s1",
+          start:"center 40%",
+          end:"bottom 20%",
+          scrub:2,
+        }
+      })
   }, { scope: container });
 
   return (
