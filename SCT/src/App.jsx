@@ -64,18 +64,50 @@ function App() {
 
       gsap.to(obj, {
         val: 260,
-        ease:"Power1.out",
+        ease: "Power1.out",
         scrollTrigger: {
           trigger: "#s3",
-          markers: true,
-          start: "top 50%",
-          end: "bottom 80%",
-          scrub: 3,
+//          markers: true,
+          start: "top center",
+          end: "+=1000",
+          scrub: 1.4,
         },
         onUpdate: () => {
           setNum(Math.floor(obj.val));
         },
       });
+      ScrollTrigger.create({
+        trigger: "#s3",
+        start: "top top",
+        end: "+=1000",
+        pin: true,
+        pinSpacing:false,
+      });
+
+      gsap.to("#h-inner",{
+        scrollTrigger:{
+          start:"center 40%",
+          trigger:"#s4",
+//          markers:true,
+          end:"+=800",
+          scrub:2,
+          pin:true,
+        },
+        ease:"power3.in",
+        x:"-1800px",
+      })
+      gsap.from(".wipe-inner",{
+        scrollTrigger:{
+          trigger:"#s5",
+          start:"top 20%",
+          end:"center center",
+//          markers:true,
+        },
+        overflow:false,
+        x:-1600,
+        ease:"power2.out",
+        stagger:0.2,
+      })
     },
     { scope: container },
   );
@@ -93,11 +125,11 @@ function App() {
           <span className="h-text outline">ENGINEER &nbsp;</span>
         </div>
         <div className="h-track" id="track2" style={{ marginTop: "8px" }}>
-          <span className="h-text outline">KRISH &nbsp;</span>
+          <span className="h-text outline">YAKSH &nbsp;</span>
           <span className="h-text">· DEV ·&nbsp;</span>
-          <span className="h-text outline">KRISH &nbsp;</span>
+          <span className="h-text outline">YAKSH &nbsp;</span>
           <span className="h-text">· DEV ·&nbsp;</span>
-          <span className="h-text outline">KRISH &nbsp;</span>
+          <span className="h-text outline">YAKSH &nbsp;</span>
           <span className="h-text">· DEV ·&nbsp;</span>
         </div>
       </section>

@@ -123,6 +123,8 @@ section {
 
 /* ─── 3. PINNED COUNTER ─── */
 #s3 {
+  z-index: 1;
+  position: relative;
   min-height: 100vh;
   overflow: hidden;
 }
@@ -153,6 +155,8 @@ section {
 /* ─── 4. HORIZONTAL SCROLL SECTION ─── */
 #s4 {
   min-height: 100vh;
+  z-index: 4;
+  position: relative;
   overflow: hidden;
   padding: 0;
 }
