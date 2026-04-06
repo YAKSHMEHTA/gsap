@@ -72,6 +72,7 @@ section {
 
 /* ─── 2. STAGGER REVEAL ─── */
 #s2 {
+  overflow: hidden;
 }
 
 .cards {
@@ -80,12 +81,14 @@ section {
   gap: 1px;
   background: var(--line);
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .card {
   background: var(--bg);
   padding: 40px 32px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   gap: 16px;
 }
@@ -263,4 +266,11 @@ section {
   font-size: 10px;
   color: var(--accent);
   letter-spacing: 0.15em;
+}
+
+@media (max-width: 600px) {
+  .cards{
+    display: flex;
+    flex-direction: column;
+  }
 }
