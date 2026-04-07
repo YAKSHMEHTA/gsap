@@ -89,12 +89,12 @@ function App() {
           start:"center 40%",
           trigger:"#s4",
 //          markers:true,
-          end:"+=800",
+          end:"+=2200",
           scrub:2,
           pin:true,
         },
         ease:"power3.in",
-        x:"-1800px",
+        x:"-2800px",
       })
       gsap.from(".wipe-inner",{
         scrollTrigger:{
