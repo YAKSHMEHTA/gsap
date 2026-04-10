@@ -46,7 +46,7 @@ section {
   margin-bottom: 20px;
 }
 
-/* ─── 1. HORIZONTAL TEXT SLIDE ─── */
+
 #s1 {
   overflow: hidden;
 }
@@ -70,7 +70,7 @@ section {
   color: transparent;
 }
 
-/* ─── 2. STAGGER REVEAL ─── */
+
 #s2 {
   overflow: hidden;
 }
@@ -124,7 +124,7 @@ section {
   transform-origin: left;
 }
 
-/* ─── 3. PINNED COUNTER ─── */
+
 #s3 {
   z-index: 1;
   position: relative;
@@ -155,7 +155,7 @@ section {
   text-transform: uppercase;
 }
 
-/* ─── 4. HORIZONTAL SCROLL SECTION ─── */
+
 #s4 {
   min-height: 100vh;
   z-index: 4;
@@ -228,7 +228,6 @@ section {
   color: var(--accent);
 }
 
-/* ─── 5. LINE WIPE REVEAL ─── */
 #s5 {
 }
 
