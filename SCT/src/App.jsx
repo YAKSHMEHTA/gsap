@@ -1,8 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import "./App.css";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "@studio-freight/lenis";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -20,6 +21,23 @@ function App() {
     "MONGODB",
     "GSAP",
   ];
+  useEffect(() => {
+    const lenis = new Lenis({
+      smooth: true,
+      lerp: 0.08, 
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+    lenis.on("scroll",ScrollTrigger.update)
+
+
+    return () => lenis.destroy();
+  }, []);
   useGSAP(
     () => {
       const tl = gsap.timeline();
